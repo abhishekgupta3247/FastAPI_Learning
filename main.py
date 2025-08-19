@@ -9,6 +9,12 @@ def index():
     return {'data': 'blog list'}
 
 
-@app.get('/blog/1')
-def show():
-    return {'data': 1}
+@app.get('/blog/{id}')
+def show(id):
+    # fetch blog with id = id
+    return {'data': id}
+
+@app.get('/blog/{id}/comments')
+def show(id):
+    # fetch comments of blog with id = id
+    return {'data': {'1', '2'}}
