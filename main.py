@@ -8,15 +8,15 @@ def index():
     # return {"message": "Hello, World!"}
     return {'data': 'blog list'}
 
+@app.get('/blog/unpublished')
+def show():
+    return {'data': 'all unpublished blogs'}
 
 @app.get('/blog/{id}')
 def show(id : int):
     # fetch blog with id = id
     return {'data': id}
 
-@app.get('/blog/unpublished')
-def show():
-    return {'data': 'all unpublished blogs'}
 
 @app.get('/blog/{id}/comments')
 def show(id):
