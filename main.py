@@ -34,10 +34,11 @@ def show(id, limit=10):
     return {'data': {'1', '2'}}
 
 class Blog(BaseModel):
-    pass
+    title: str
+    body: str
+    published: Optional[bool]
 
 @app.post('/blog')
 # def create_blog(blog: Blog):
 def create_blog(request: Blog):
-    return request
-    return {'data': 'blog created'}
+    return {'data': f'blog is created with title as {request.title}'}
