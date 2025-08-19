@@ -1,5 +1,6 @@
 from typing import Optional
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -32,6 +33,11 @@ def show(id, limit=10):
     # return limit
     return {'data': {'1', '2'}}
 
+class Blog(BaseModel):
+    pass
+
 @app.post('/blog')
-def create():
+# def create_blog(blog: Blog):
+def create_blog(request: Blog):
+    return request
     return {'data': 'blog created'}
