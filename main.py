@@ -29,5 +29,9 @@ def show(id : int):
 # id is a path parameter. limit is a query parameter.
 def show(id, limit=10):
     # fetch comments of blog with id = id
-    return limit
+    # return limit
     return {'data': {'1', '2'}}
+
+@app.post('/blog')
+def create():
+    return {'data': 'blog created'}
