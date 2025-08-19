@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
+@app.get("/blog")
 def index():
     # return 'heyy'
     # return {"message": "Hello, World!"}
