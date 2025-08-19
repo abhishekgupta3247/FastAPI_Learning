@@ -1,10 +1,12 @@
+from typing import Optional
 from fastapi import FastAPI
 
 app = FastAPI()
 
 # @app.get("/blog?limit=10&published=true")
+# @app.get("/blog?sort=latest")
 @app.get("/blog")
-def index(limit = 10, published : bool = True):
+def index(limit = 10, published : bool = True, sort: Optional[str] = None):
     # return published
     # only get 10 published blogs
     if published:
