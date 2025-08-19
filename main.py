@@ -10,7 +10,7 @@ def index():
 
 
 @app.get('/blog/{id}')
-def show(id):
+def show(id : int):
     # fetch blog with id = id
     return {'data': id}
 
