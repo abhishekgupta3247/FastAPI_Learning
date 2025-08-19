@@ -4,10 +4,13 @@ app = FastAPI()
 
 # @app.get("/blog?limit=10&published=true")
 @app.get("/blog")
-def index(limit):
+def index(limit, published):
     # only get 10 published blogs
-    # return {'data': 'blog list'}
-    return {'data': f'{limit} blogs from the db'}
+    if published:
+        # fetch only published blogs
+        return {'data': f'{limit} published blogs from the db'}
+    else:
+        return {'data': f'{limit} blogs from the db'}
 
 @app.get('/blog/unpublished')
 def show():
