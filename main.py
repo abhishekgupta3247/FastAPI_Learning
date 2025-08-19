@@ -5,6 +5,7 @@ app = FastAPI()
 # @app.get("/blog?limit=10&published=true")
 @app.get("/blog")
 def index(limit, published):
+    return published
     # only get 10 published blogs
     if published:
         # fetch only published blogs
