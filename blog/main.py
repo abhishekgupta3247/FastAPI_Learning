@@ -30,10 +30,8 @@ def destroy(id: int, db: Session = Depends(get_db)):
     return 'Deleted successfully'
 
 @app.put('/blog/{id}', status_code=status.HTTP_202_ACCEPTED)
-def update(id, request: schemas.Blog, db: Session = Depends(get_db )):
-    db.query(models.Blog).filter(models.Blog.id == id).update({
-        'title': 'updated title',
-    })
+def update(id: int, request: schemas.Blog, db: Session = Depends(get_db)):
+    db.query(models.Blog).filter(models.Blog.id == id).update(dict(request))
     db.commit()
     return 'Updated successfully'
 
