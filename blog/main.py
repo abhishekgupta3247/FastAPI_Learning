@@ -29,6 +29,14 @@ def destroy(id: int, db: Session = Depends(get_db)):
     db.commit()
     return 'Deleted successfully'
 
+@app.put('/blog/{id}', status_code=status.HTTP_202_ACCEPTED)
+def update(id, request: schemas.Blog, db: Session = Depends(get_db )):
+    db.query(models.Blog).filter(models.Blog.id == id).update({
+        'title': 'updated title',
+    })
+    db.commit()
+    return 'Updated successfully'
+
 @app.get('/blog')
 def all(db: Session = Depends(get_db)):
     blogs = db.query(models.Blog).all()
